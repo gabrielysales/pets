@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Lista de Agendamentos</h2>
+
+<a href="/agendamentos/novo">➕ Novo Agendamento</a>
+<table border="1" cellpadding="6">
+  <tr>
+    <th>ID</th><th>ID Tutor</th><th>ID Prestador</th><th>Data</th><th>Serviço</th><th>Status</th><th>Ações</th>
+  </tr>
+  {{#each agendamentos}}
+  <tr>
+    <td>{{id}}</td>
+    <td>{{id_tutor}}</td>
+    <td>{{id_prestador}}</td>
+    <td>{{data}}</td>
+    <td>{{servico}}</td>
+    <td>{{status}}</td>
+    <td>
+      <a href="/agendamentos/editar/{{id}}">✏️ Editar</a> |
+      <a href="/agendamentos/excluir/{{id}}">🗑️ Excluir</a>
+    </td>
+  </tr>
+  {{/each}}
+</table>
+
+<a href="/">⬅ Voltar</a>
+
+</body>
+</html>

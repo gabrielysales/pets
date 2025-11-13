@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Lista de Prestadores</h2>
+
+<a href="/prestadores/novo">➕ Novo Prestador</a>
+<table border="1" cellpadding="6">
+  <tr>
+    <th>ID</th><th>Nome</th><th>Serviço</th><th>Email</th><th>Telefone</th><th>Endereço</th><th>Ações</th>
+  </tr>
+  {{#each prestadores}}
+  <tr>
+    <td>{{id}}</td>
+    <td>{{nome}}</td>
+    <td>{{tipo_servico}}</td>
+    <td>{{email}}</td>
+    <td>{{telefone}}</td>
+    <td>{{endereco}}</td>
+    <td>
+      <a href="/prestadores/editar/{{id}}">✏️ Editar</a> |
+      <a href="/prestadores/excluir/{{id}}">🗑️ Excluir</a>
+    </td>
+  </tr>
+  {{/each}}
+</table>
+
+<a href="/">⬅ Voltar</a>
+
+</body>
+</html>

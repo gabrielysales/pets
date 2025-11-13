@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <h2>{{#if agendamento.id}}Editar Agendamento{{else}}Novo Agendamento{{/if}}</h2>
+
+<form method="POST" action="/agendamentos/salvar">
+  {{#if agendamento.id}}<input type="hidden" name="id" value="{{agendamento.id}}">{{/if}}
+  
+  <label>ID do Tutor:</label><br>
+  <input name="id_tutor" value="{{agendamento.id_tutor}}" required><br><br>
+
+  <label>ID do Prestador:</label><br>
+  <input name="id_prestador" value="{{agendamento.id_prestador}}" required><br><br>
+
+  <label>Data e Hora:</label><br>
+  <input type="datetime-local" name="data" value="{{agendamento.data}}" required><br><br>
+
+  <label>Serviço:</label><br>
+  <input name="servico" value="{{agendamento.servico}}" required><br><br>
+
+  <label>Status:</label><br>
+  <select name="status" required>
+    <option value="pendente" {{#ifEquals agendamento.status "pendente"}}selected{{/ifEquals}}>Pendente</option>
+    <option value="confirmado" {{#ifEquals agendamento.status "confirmado"}}selected{{/ifEquals}}>Confirmado</option>
+    <option value="concluido" {{#ifEquals agendamento.status "concluido"}}selected{{/ifEquals}}>Concluído</option>
+  </select><br><br>
+
+  <button type="submit">Salvar</button>
+</form>
+
+<a href="/agendamentos">⬅ Voltar</a>
+
+
+
+</body>
+</html>
